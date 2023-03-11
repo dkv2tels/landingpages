@@ -46,7 +46,7 @@
                 <nav x-transition :class="!navbarOpen && 'hidden'" id="navbarCollapse" class="absolute right-0 top-[90px] w-full max-w-[350px] rounded-lg border border-blue-200 bg-white py-5 px-6 shadow-lg shadow-blue-400/5 transition-all lg:static lg:block lg:max-w-full lg:border-none lg:shadow-none lg:bg-transparent lg:px-0 lg:py-0">
                     <ul class="flex flex-col justify-center gap-8 lg:flex-row">
                         <li>
-                            <a href="#whatdkv" class="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">Home</a>
+                            <a class="text-lg font-medium text-blue-600 duration-200 hover:text-blue-600 lg:text-base">Home</a>
                         </li>
                         <li>
                             <a href="#projects-nav" class="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">Projects</a>
@@ -63,6 +63,25 @@
                         <li>
                             <a href="#contactnav" class="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">Contact</a>
                         </li>
+                        <!--Menampilkan Tanggal-->
+                        <div class="font-semibold">
+                        <script type='text/javascript'>
+                            <!--
+                            var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+                            var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum&#39;at', 'Sabtu'];
+                            var date = new Date();
+                            var day = date.getDate();
+                            var month = date.getMonth();
+                            var thisDay = date.getDay(),
+                                thisDay = myDays[thisDay];
+                            var yy = date.getYear();
+                            var year = (yy < 1000) ? yy + 1900 : yy;
+                            document.write(thisDay + ', ' + day + ' ' + months[month] + ' ' + year);
+                            //-->
+                        </script>
+                        </div>
+                        <!--Menampilkan Waktu-->
+                        <div id="clock" class="font-semibold"></div>
                     </ul>
                 </nav>
             </div>
@@ -76,6 +95,38 @@
             </div>
         </div>
     </div>
+    <div id="alert-1" class="flex p-4 mb-4 text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
+        <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+        <span class="sr-only">Info</span>
+        <div class="ml-3 text-sm font-medium">
+          Update Website! Klik <button type="button" id="updatealert" class="font-semibold underline hover:no-underline">Disini</button> Untuk Melihat Update Nya.
+        </div>
+        <button type="button" id="alert-close" class="ml-auto -mx-1.5 -my-1.5 bg-blue-50 text-blue-500 rounded-lg focus:ring-2 focus:ring-blue-400 p-1.5 hover:bg-blue-200 inline-flex h-8 w-8 dark:bg-gray-800 dark:text-blue-400 dark:hover:bg-gray-700" data-dismiss-target="#alert-1" aria-label="Close">
+            <span class="sr-only">Close</span>
+            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+        </button>
+      </div>
+      <script src="css/sweetalert2/sweetalert2.all.min.js"></script>
+      <script>
+        const updateAlert = document.getElementById('updatealert')
+        updateAlert.addEventListener('click', function(){
+            Swal.fire({
+  title: '<strong>Update v1.1.0</strong>',
+  icon: 'info',
+  html:
+    '• View Website<br/>• Menambahkan Javascript<br/>• Menambahkan Alert Pada Bagian Bawah Navbar Dan Contact Us<br/><br/>Full Release : <a href="https://github.com/dkv2tels/landingpages/releases" style="color: blue;">https://github.com/dkv2tels/landingpages/releases</a>',
+  showCloseButton: true,
+  showCancelButton: false,
+  focusConfirm: false,
+  confirmButtonText:
+    '<i class="fa fa-thumbs-up"></i> Okeyy',
+  confirmButtonAriaLabel: 'Thumbs up, great!',
+  cancelButtonText:
+    '<i class="fa fa-thumbs-down"></i>',
+  cancelButtonAriaLabel: 'Thumbs down'
+}) 
+        });
+      </script>
 </header>
 <!-- ====== END header ====== -->
 
@@ -108,7 +159,7 @@
             <div class="w-full px-4 lg:w-6/12">
                 <div class="lg:ml-auto lg:text-right">
                     <div class="relative z-10 inline-block pt-11 lg:pt-0">
-                        <img src="images/assets/xdkv2.jpg" alt="hero section img" class="max-w-full lg:ml-auto rounded-none">
+                        <img src="images/assets/xdkv2.png" alt="hero section img" class="max-w-full lg:ml-auto rounded-full">
                     </div>
                 </div>
             </div>
@@ -510,6 +561,47 @@
 
 <!-- ====== END Blog ====== -->
 
+<!-- ====== Website Info ====== -->
+
+<div class="mx-auto max-w-7xl px-8 md:px-6">
+    <!-- heading text -->
+        <span class="font-medium text-blue-500">Information</span>
+        <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">Website Element</h1>
+<section class="py-16"">
+    <div class="flex justify-between">
+        <span class="text-base font-medium text-black dark:text-white">HTML</span>
+        <span class="text-sm font-medium text-blue-700 dark:text-white">75.4%</span>
+      </div>
+      <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+        <div class="bg-blue-600 h-2.5 rounded-full" style="width: 75.4%"></div>
+      </div>
+      <br/>
+      <div class="flex justify-between mb-1">
+        <span class="text-base font-medium text-black dark:text-white">CSS</span>
+        <span class="text-sm font-medium text-blue-700 dark:text-white">8.1%</span>
+      </div>
+      <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+        <div class="bg-blue-600 h-2.5 rounded-full" style="width: 8.1%"></div>
+      </div>
+      <br/>
+      <div class="flex justify-between mb-1">
+        <span class="text-base font-medium text-black dark:text-white">Javascript</span>
+        <span class="text-sm font-medium text-blue-700 dark:text-white">1.5%</span>
+      </div>
+      <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+        <div class="bg-blue-600 h-2.5 rounded-full" style="width: 1.5%"></div>
+      </div>
+      <br/>
+      <div class="flex justify-between mb-1">
+        <span class="text-base font-medium text-black dark:text-white">Tailwind CSS</span>
+        <span class="text-sm font-medium text-blue-700 dark:text-white">15%</span>
+      </div>
+      <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+        <div class="bg-blue-600 h-2.5 rounded-full" style="width: 15%"></div>
+      </div>
+</section>
+</div>
+
 <!-- ====== Contact ====== -->
 
 <script src="js/footer.js"></script>
@@ -569,31 +661,34 @@
             <div class="w-full px-4 md:w-1/2 xl:w-5/12">
                 <div class="relative rounded-lg bg-white p-8 shadow-lg shadow-blue-500/10 sm:p-12">
                     <form action="" name="contact-from-dkv-2-tels">
-                        <div id="alert-1" class="p-4 flex mb-4 text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 hidden my-alert" role="alert">
+                        <div id="alertContactUs" class="p-4 flex mb-4 text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 hidden my-alert" role="alert">
                             <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
                             <span class="sr-only">Info</span>
                             <div class="ml-3 text-sm font-medium">
                               <b>Terimakasih! </b>Pesanmu Telah Terkirim Ke Admin Website Ini.
                             </div>
-                              <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-blue-50 text-blue-500 rounded-lg focus:ring-2 focus:ring-blue-400 p-1.5 hover:bg-blue-200 inline-flex h-8 w-8 dark:bg-gray-800 dark:text-blue-400 dark:hover:bg-gray-700 hidden alert-close" data-dismiss-target="#alert-1" aria-label="Close">
+                              <button type="button" id="alert-cu-close" class="ml-auto -mx-1.5 -my-1.5 bg-blue-50 text-blue-500 rounded-lg focus:ring-2 focus:ring-blue-400 p-1.5 hover:bg-blue-200 inline-flex h-8 w-8 dark:bg-gray-800 dark:text-blue-400 dark:hover:bg-gray-700" data-dismiss-target="#alert-1" aria-label="Close">
                                 <span class="sr-only">Close</span>
                                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                             </button>
                           </div>
                         <div class="mb-6">
-                            <input type="text" placeholder="Your Name" name="nama" class="w-full rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none">
+                            <input type="text" placeholder="Nama Kamu" name="nama" class="w-full rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none" required>
                         </div>
                         <div class="mb-6">
-                            <input type="email" placeholder="Your Email" name="email" class="w-full rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none">
+                            <input type="email" placeholder="Email Kamu" name="email" class="w-full rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none" required>
                         </div>
                         <div class="mb-6">
-                            <input type="text" placeholder="Instagram" name="instagram" class="w-full rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none">
+                            <input type="text" placeholder="Kelas Kamu ( e.g. Tels ~ X DKV 2 )" name="kelas" class="w-full rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none" required>
                         </div>
                         <div class="mb-6">
-                            <textarea name="message" rows="6" class="resize-none w-full rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none" placeholder="Type Your Message"></textarea>
+                            <input type="email" placeholder="Akun Instagram Kamu ( e.g. @dkv2.tels)" name="instagram" class="w-full rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none">
+                        </div>
+                        <div class="mb-6">
+                            <textarea name="message" rows="6" class="resize-none w-full rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none" placeholder="Tulis Pesanmu. Boleh Curhat Dll:v" minlength="1"></textarea>
                         </div>
                         <div class="">
-                            <button type="submit" class="w-full rounded border border-blue-300 bg-blue-500 p-3 text-white transition-all hover:bg-opacity-90 btn-kirim">Send Message</button>
+                            <button type="submit" class="w-full rounded border border-blue-300 bg-blue-500 p-3 text-white transition-all hover:bg-opacity-90 btn-kirim">Kirim Pesan</button>
                         </div>
                         <div class="">
                             <button type="submit" class="w-full flex justify-center rounded border border-blue-300 bg-blue-300 p-3 text-white transition-all hover:bg-opacity-90 btn-loading hidden"><div class="loader"></div>Loading...</button>
@@ -601,11 +696,12 @@
                     </form>
                 </div>
             </div>
-
+            
 
         </div>
     </div>
 </section>
+
 
 
 <!-- ====== END Contact ====== -->
@@ -699,7 +795,7 @@
 
 
 <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwLGUaBYm_R6Q_UFdWcqrquccrLXjuCbmzBnRdrrgrk9FdYkmRwXkUMbCfedNxczTGM/exec'
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwmBoFSDUafG57QfEtgGYKS6RwhtjZyTJpx0BStXJEoLzkl7IXwQMOtdQ9FZaSWeZk/exec'
     const form = document.forms['contact-from-dkv-2-tels']
     const btnKirim = document.querySelector('.btn-kirim');
     const btnLoading = document.querySelector('.btn-loading');
@@ -725,5 +821,71 @@
         .catch(error => {console.error('Error!', error.message)})
     })
   </script>
+
+  <!--Menampilkan waktyu dan tanggal-->
+
+
+<!--Menampilkan Waktu-->
+<script type="text/javascript">
+    <!--
+    function showTime() {
+        var a_p = "";
+        var today = new Date();
+        var curr_hour = today.getHours();
+        var curr_minute = today.getMinutes();
+        var curr_second = today.getSeconds();
+        if (curr_hour < 12) {
+            a_p = "AM";
+        } else {
+            a_p = "PM";
+        }
+        if (curr_hour == 0) {
+            curr_hour = 12;
+        }
+        if (curr_hour > 12) {
+            curr_hour = curr_hour - 12;
+        }
+        curr_hour = checkTime(curr_hour);
+        curr_minute = checkTime(curr_minute);
+        curr_second = checkTime(curr_second);
+     document.getElementById('clock').innerHTML=curr_hour + ":" + curr_minute + ":" + curr_second + " " + a_p;
+        }
+
+    function checkTime(i) {
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
+    setInterval(showTime, 500);
+    //-->
+    </script>
+    <!--Function Close Button Bawah Navbar-->
+    <script>
+        const alert1 = document.getElementById("alert-1")
+        const alertCloseBtn = document.getElementById("alert-close")
+        
+        alertCloseBtn.onclick = function () {
+            if (alert1.style.display !== "none") {
+                alert1.style.display = "none";
+            } else {
+                alert1.style.display = "block";
+            }
+        };
+    </script>
+    
+    <!--Function Close Button Contact Us-->
+    <script>
+        const alertContactUs = document.getElementById("alertContactUs")
+        const alertCUBtn = document.getElementById("alert-cu-close")
+
+        alertCUBtn.onclick = function () {
+            if (alertContactUs.style.display !== "none") {
+                alertContactUs.style.display = "none";
+            } else {
+                alertContactUs.style.display = "block";
+            }
+        };
+    </script>
 </body>
 </html>
