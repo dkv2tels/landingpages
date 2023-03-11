@@ -31,7 +31,7 @@
 # Features
 | Fitur | Check |
 |--------|--------|
-| **Open Source** |[✔️](https://github.com/dkv2tels)) |
+| **Open Source** |[✔️](https://github.com/dkv2tels) |
 | **Mudah Diedit** |[✔️](https://github.com/dkv2tels) |
 | **Javascript** |[✔️](https://github.com/dkv2tels) |
 | **CSS** |[✔️](https://github.com/dkv2tels) |
